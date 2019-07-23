@@ -1,0 +1,50 @@
+[constants]
+gas_constant = 8.314e-3 # units kJ/mol.K
+temperature = 298.15
+
+[[experiment]]
+label = 'condition_1'
+concentration_r1 = 0.3
+concentration_r2 = 1
+measurements = [
+  { label = 'M1', error_scale = 0.1, type = 'metabolite' },
+  { label = 'M2', error_scale = 0.1, type = 'metabolite' },
+  { label = 'r3', error_scale = 0.02, type = 'flux' }
+]
+
+[[experiment]]
+label = 'condition_2'
+concentration_r1 = 0.2
+concentration_r2 = 1.2
+measurements = [
+  { label = 'M1', error_scale = 0.1, type = 'metabolite' },
+  { label = 'M2', error_scale = 0.1, type = 'metabolite' },
+  { label = 'r3', error_scale = 0.02, type = 'flux' }
+]
+
+[[reaction]]
+name = 'r1'
+mechanism = 'fixed_flux'
+stoichiometry = { M1 = 1 }
+
+[[reaction]]
+name = 'r2'
+mechanism = 'uniuni'
+stoichiometry = { M1 = -1, M2 = 1 }
+parameters = [
+  { label = 'Keq', prior_loc = 1.1, prior_scale = 0.5, type = 'kinetic', true_value = 4 },
+  { label = 'Kcat1', prior_loc = 0, prior_scale = 0.6, type = 'kinetic', true_value = 1.3 },
+  { label = 'Kcat2', prior_loc = 0, prior_scale = 0.6, type = 'kinetic', true_value = 1 },
+  { label = 'Ka', prior_loc = 0, prior_scale = 0.6, type = 'kinetic', true_value = 0.4 },
+  { label = 'dissociation_constant_t', metabolite = 'M1', prior_loc= 0, prior_scale = 0.6, type = 'allosteric', true_value = 2},
+  { label = 'transfer_constant', prior_loc= 0, prior_scale = 0.6, type = 'allosteric', true_value = 1.1},
+]
+allosteric_inhibitors = [ 'M1' ]
+
+[[reaction]]
+name = 'r3'
+mechanism = 'irr_mass_action'
+stoichiometry = { M2 = -1 }
+parameters = [
+  { label = 'alpha', prior_loc = 0, prior_scale = 0.6, type = 'kinetic', true_value = 0.5 }
+]
