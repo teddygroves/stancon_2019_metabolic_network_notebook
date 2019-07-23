@@ -1,0 +1,6 @@
+arviz==0.4.1
+cmdstanpy==0.4.0
+matplotlib==3.1.1
+numpy==1.16.4
+pandas==0.25.0
+toml==0.10.0
