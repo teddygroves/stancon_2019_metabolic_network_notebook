@@ -5,7 +5,7 @@ temperature = 298.15
 [[experiment]]
 label = 'condition_1'
 concentration_r1 = 0.3
-concentration_r2 = 1
+concentration_r2 = 4.3
 measurements = [
   { label = 'M1', error_scale = 0.1, type = 'metabolite' },
   { label = 'M2', error_scale = 0.1, type = 'metabolite' },
@@ -15,7 +15,7 @@ measurements = [
 [[experiment]]
 label = 'condition_2'
 concentration_r1 = 0.2
-concentration_r2 = 1.2
+concentration_r2 = 3.8
 measurements = [
   { label = 'M1', error_scale = 0.1, type = 'metabolite' },
   { label = 'M2', error_scale = 0.1, type = 'metabolite' },
