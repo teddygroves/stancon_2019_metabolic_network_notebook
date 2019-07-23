@@ -1,0 +1,9 @@
+.DS_Store
+.ipynb_checkpoints/*
+*.txt
+*.csv
+*.d
+*.hpp
+*.json
+inference_model_linear
+simulation_model_linear
